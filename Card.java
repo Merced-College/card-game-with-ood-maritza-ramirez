@@ -15,8 +15,10 @@ public class Card {
     }
 
     @Override
-    public boolean equals(Card other) {
-        if ((other.suit == this.suit) && (other.rank == this.rank)) {
+    public boolean equals(Object other) {
+        if (other.getClass() != this.getClass()){
+            return false;
+        } else if ((((Card) other).suit == this.suit) && (((Card) other).rank == this.rank)) {
             return true;
         } else {
             return false;
