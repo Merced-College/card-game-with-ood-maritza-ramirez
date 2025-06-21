@@ -27,6 +27,7 @@ public class CardGame {
 			//	public Card(String cardSuit, String cardName, int cardValue, String cardPicture) {
 			Card newCard = new Card(fields[0], fields[1].trim(),
 					Integer.parseInt(fields[2].trim()), fields[3]);
+			// Example of input file: heart, ace, 11,ah.gif
 			deckOfCards.add(newCard);	
 		}
 
@@ -71,7 +72,7 @@ public class CardGame {
 				next = playerCards.get(j);
 				//System.out.println(" comparing " + current);
 				//System.out.println(" to " + next);
-				if(current.equals(next))
+				if(current.equals(next)) // Need to make .equals function
 					count++;
 			}//end of inner for
 			if(count == 1)
