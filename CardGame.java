@@ -7,12 +7,13 @@ import java.util.Scanner;
 
 public class CardGame {
 
+	public int numPlayers;
 	private static ArrayList<Card> deckOfCards = new ArrayList<Card>();
-	private static ArrayList<Card> playerCards = new ArrayList<Card>();
-
+	private static ArrayList<Player> players = new ArrayList<>();
 
 	public static void main(String[] args) {
 
+		// Populate and shuffle deck
 		Scanner input = null;
 		try {
 			input = new Scanner(new File("cards.txt"));
@@ -36,18 +37,42 @@ public class CardGame {
 		//for(Card c: deckOfCards)
 			//System.out.println(c);
 
-		//deal the player 5 cards
-		for(int i = 0; i < 4; i++) {
-			playerCards.add(deckOfCards.remove(i));
+		Scanner userInput = new Scanner(System.in);
+		int numPlayers;
+		while(true) {
+			System.out.print("Number of players: ");
+			try {
+				numPlayers = userInput.nextInt();
+				break;
+			} catch (Error e) {
+				System.out.println("Input must be an integer.");
+			}
 		}
-		
-		System.out.println("players cards");
-		for(Card c: playerCards)
-			System.out.println(c);
+
+		//deal each the player 2 cards
+		for(int i = 0; i < numPlayers; i++) {
+			Player newPlayer = new Player(deckOfCards);
+			newPlayer.hit();
+			newPlayer.hit();
+
+
+			players.add(newPlayer);
+		}
 
 		System.out.println("pairs is " + checkFor2Kind());
 
+
+		// Game loop
+		while (true) {
+
+		}
 	}//end main
+
+	private static void showPlayerCard(int index) {
+		System.out.println("player " + index + " cards");
+		// This way we enforce an abstraction barrier by preventing outside classes from accessing the player cards.
+		players.get(index).showCards();
+	}
 
 	public static void shuffle() {
 

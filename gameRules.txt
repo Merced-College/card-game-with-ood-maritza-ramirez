@@ -1,0 +1,7 @@
+In Blackjack, the goal is to get a hand value as close to 21 as possible without exceeding it,
+ and to have a hand higher than the dealer's without busting (going over 21). Players and the dealer
+ are dealt two cards initially. Players see all their cards, while the dealer has one card face up and
+ one face down. Players can choose to "hit" (take another card) or "stand" (keep their current hand).
+ If a player goes over 21, they bust and lose. The dealer must hit on 16 or less and stand on 17 or more.
+ If the dealer busts, all remaining players win. If the dealer stands, the player with the higher hand
+ value wins. If the player and dealer tie, it's a push, and bets are returned.
